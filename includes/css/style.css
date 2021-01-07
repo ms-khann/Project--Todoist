@@ -1,0 +1,233 @@
+:root{
+    --main-color: brown;
+    --primary-color:#fff;
+    --text-color:#000;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+.conatiner{
+    width: 1200px;
+    padding: 0 15px;;
+    margin: auto;
+}
+.container-fluid{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+/* --- Start: Additional CSS --- */
+.add-task-btn{
+    background-color:var(--main-color);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color:var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px #00000061;
+}
+.bg-layer{
+    background: rgb(0 0 0 / 60%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+/* --- End: Additional CSS --- */
+
+/* ---- Start: Header ------ */
+header{
+    background-color: var(--main-color);
+    position: relative;
+}
+.inner-header{
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.menu-icon-and-search>div{
+    display: inline-block;
+    color:var(--primary-color);
+    vertical-align: middle;
+}
+.menu-icon-and-search .menu-icon{
+    cursor: pointer;
+}
+.menu-icon-and-search .day{
+    margin-left: 15px;
+}
+.search-and-options .dots,
+.search-and-options .search label{
+    color: var(--primary-color);
+    cursor: pointer;
+}
+.search-and-options>div{
+    display: inline-block;
+    vertical-align: middle;
+}
+.search-and-options .dots{
+    margin-left: 15px;
+}
+.search-and-options .search-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background:#fff;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 1px 6px #00000033;
+    transform: scale(0);
+    transition: all.3s;
+}
+.search-and-options .search-box .back-btn{
+    content:'\f060';
+    display: inline-block;
+    font-family: 'FontAwesome';
+    vertical-align: middle;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.search-and-options .search-box input{
+    border: 0;
+    outline: none;
+    padding: 0 15px;
+    height: 100%;
+    flex-grow:1;
+}
+/* ---- End: Header ------ */
+
+
+/* ---- Start: Sidebar ---- */
+.sidebar{
+    z-index: 101;
+    width: 400px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+}
+.inner-sidebar{
+    width: 100%l;
+}
+.inner-sidebar>.head .profie-pic{
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+    border-radius: 50%;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: coral;
+    margin-right: 15px;
+}
+.inner-sidebar>.head .profie-pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.inner-sidebar>.head a{
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    padding: 30px 20px;
+    background-color: var(--main-color);
+}
+.inner-sidebar>.head a .mail-and-task span{
+    display: block;
+    font-weight:700;
+    font-size: 15px;
+    line-height: 1;
+    word-break: break-all;
+}
+.inner-sidebar>.head a .mail-and-task span:not(:last-child){
+    margin-bottom: 5px;
+}
+.page-list li .page-link{
+    display: block;
+    padding: 10px 10px 10px 20px;
+    font-size: 18px;
+    color:var(--text-color);
+}
+.page-list li .page-link>span{
+    display: inline-block;
+}
+.page-list li .page-link>.icon{
+    margin-right: 10px;
+}
+.page-list li .page-link>.text{
+    text-transform: capitalize;
+}
+.page-list:not(:last-child){
+    margin-bottom: 20px;
+}
+/* ---- End: Sidebar ---- */
+
+/* --- Start: Accordian --- */
+.accordian-item .accordian-toggle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding: 10px 10px 10px 20px;
+    cursor: pointer;
+}
+.accordian-item .accordian-title{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+}
+.accordian-item .accordian-title::before{
+    content: '\f107';
+    font-family: 'FontAwesome';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+.accordian-item .accordian-title .text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.accordian-item .accordian-title .icon{
+    margin-right: 10px;;
+}
+.accordian-item .accordian-toggle .add-project button{
+    font-size: 14px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px;
+}
+/* --- End: Accordian --- */
