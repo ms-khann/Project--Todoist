@@ -1,43 +1,46 @@
-:root{
-    --main-color: brown;
-    --primary-color:#fff;
-    --text-color:#000;
+:root {
+    --main-color: #dc4c3f;
+    --primary-color: #fff;
+    --text-color: #252525;
 }
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: 'Roboto', sans-serif;
+body {
+    font-family: "Roboto", sans-serif;
 }
-a{
+a {
     text-decoration: none;
 }
-.conatiner{
+.conatiner {
     width: 1200px;
-    padding: 0 15px;;
+    padding: 0 15px;
     margin: auto;
 }
-.container-fluid{
+.container-fluid {
     width: 100%;
     padding-right: 15px;
-    padding-left: 15px
+    padding-left: 15px;
 }
-.row{
+.row {
     display: flex;
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
 }
-.d-none{display: none;}
+/* .d-none{display: none;} */
+.material-icons {
+    font-size: 22px;
+}
 /* --- Start: Additional CSS --- */
-.add-task-btn{
-    background-color:var(--main-color);
+.add-task-btn {
+    background-color: var(--main-color);
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    color:var(--primary-color);
+    color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +51,7 @@ a{
     cursor: pointer;
     box-shadow: 0px 2px 6px #00000061;
 }
-.bg-layer{
+.bg-layer {
     background: rgb(0 0 0 / 60%);
     position: fixed;
     top: 0;
@@ -56,49 +59,54 @@ a{
     height: 100%;
     width: 100%;
     z-index: 100;
+    display: none;
+}
+.bg-layer.active {
+    display: block;
 }
 /* --- End: Additional CSS --- */
 
 /* ---- Start: Header ------ */
-header{
+header {
     background-color: var(--main-color);
     position: relative;
 }
-.inner-header{
+.inner-header {
     padding: 15px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
-.menu-icon-and-search>div{
+.menu-icon-and-search > div {
     display: inline-block;
-    color:var(--primary-color);
+    color: var(--primary-color);
     vertical-align: middle;
 }
-.menu-icon-and-search .menu-icon{
+.menu-icon-and-search .menu-icon {
     cursor: pointer;
 }
-.menu-icon-and-search .day{
+.menu-icon-and-search .day {
     margin-left: 15px;
 }
 .search-and-options .dots,
-.search-and-options .search label{
+.search-and-options .search label {
     color: var(--primary-color);
     cursor: pointer;
 }
-.search-and-options>div{
+.search-and-options > div {
     display: inline-block;
     vertical-align: middle;
 }
-.search-and-options .dots{
+.search-and-options .dots {
     margin-left: 15px;
 }
-.search-and-options .search-box{
+.search-and-options .search-box {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    background:#fff;
+    background: #fff;
     display: flex;
     align-items: center;
     padding: 0 30px;
@@ -106,26 +114,47 @@ header{
     transform: scale(0);
     transition: all.3s;
 }
-.search-and-options .search-box .back-btn{
-    content:'\f060';
+.search-and-options .search-box.active{
+    transform: scale(1);
+}
+.search-and-options .search-box .back-btn {
+    content: "\f060";
     display: inline-block;
-    font-family: 'FontAwesome';
+    font-family: "FontAwesome";
     vertical-align: middle;
     margin-right: 15px;
     cursor: pointer;
 }
-.search-and-options .search-box input{
+.search-and-options .search-box input {
     border: 0;
     outline: none;
     padding: 0 15px;
     height: 100%;
-    flex-grow:1;
+    flex-grow: 1;
 }
 /* ---- End: Header ------ */
 
-
 /* ---- Start: Sidebar ---- */
-.sidebar{
+/* width */
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+
+/* Track */
+.sidebar::-webkit-scrollbar-track {
+}
+
+/* Handle */
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+}
+
+/* Handle on hover */
+.sidebar::-webkit-scrollbar-thumb:hover {
+    /* background: #555; */
+}
+.sidebar {
     z-index: 101;
     width: 400px;
     position: fixed;
@@ -133,11 +162,17 @@ header{
     top: 0;
     left: 0;
     background-color: var(--primary-color);
+    overflow: auto;
+    transition: all .3s;
+    transform: translateX(-100%);
 }
-.inner-sidebar{
+.sidebar.active {
+    transform: translateX(0);
+}
+.inner-sidebar {
     width: 100%l;
 }
-.inner-sidebar>.head .profie-pic{
+.inner-sidebar > .head .profie-pic {
     height: 50px;
     width: 50px;
     min-width: 50px;
@@ -151,51 +186,60 @@ header{
     background-color: coral;
     margin-right: 15px;
 }
-.inner-sidebar>.head .profie-pic img{
+.inner-sidebar > .head .profie-pic img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
-.inner-sidebar>.head a{
+.inner-sidebar > .head a {
     display: flex;
     align-items: center;
     color: var(--primary-color);
     padding: 30px 20px;
     background-color: var(--main-color);
 }
-.inner-sidebar>.head a .mail-and-task span{
+.inner-sidebar > .head a .mail-and-task span {
     display: block;
-    font-weight:700;
+    font-weight: 700;
     font-size: 15px;
     line-height: 1;
     word-break: break-all;
 }
-.inner-sidebar>.head a .mail-and-task span:not(:last-child){
+.inner-sidebar > .head a .mail-and-task span:not(:last-child) {
     margin-bottom: 5px;
 }
-.page-list li .page-link{
+.page-list li .page-link {
+    position: relative;
     display: block;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 10px 10px 54px;
     font-size: 16px;
-    color:var(--text-color);
+    color: var(--text-color);
 }
-.page-list li .page-link>span{
+.page-list li .page-link > span {
     display: inline-block;
 }
-.page-list li .page-link>.icon{
+.page-list li .page-link > .icon {
     margin-right: 10px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
 }
-.page-list li .page-link>.text{
+.page-list li .page-link > .text {
     text-transform: capitalize;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-.page-list:not(:last-child){
+.page-list:not(:last-child) {
     margin-bottom: 20px;
 }
 /* ---- End: Sidebar ---- */
 
 /* --- Start: Accordian --- */
-.accordian-item .accordian-toggle{
+.accordian-item .accordian-toggle {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -203,31 +247,44 @@ header{
     padding: 10px 10px 10px 20px;
     cursor: pointer;
     line-height: 1;
+    transition: all .3s;
 }
-.accordian-item .accordian-title{
+.accordian-item .accordian-toggle:hover {
+    background: #f8f8f7;
+}
+.accordian-item .accordian-title {
     display: flex;
     align-items: center;
     flex-grow: 1;
     overflow: hidden;
     position: relative;
+    padding-right: 38px;
 }
-.accordian-item .accordian-title::before{
-    content: '\f107';
-    font-family: 'FontAwesome';
+.accordian-item .accordian-title::before {
+    /* content: '\f107'; */
+    /* font-family: 'FontAwesome'; */
+    font-family: "Material Icons";
+    content: "expand_more";
+    /* -webkit-font-feature-settings: 'liga'; */
     display: inline-block;
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
 }
-.accordian-item .accordian-title .text{
+.accordian-item .accordian-title .text {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
-.accordian-item .accordian-title .icon{
-    margin-right: 10px;;
+.accordian-item .accordian-title .icon {
+    margin-right: 10px;
+    /* position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%); */
 }
-.accordian-item .accordian-toggle .add-project button{
+.accordian-item .accordian-toggle .add-project button {
     font-size: 14px;
     background: transparent;
     border: none;
@@ -235,26 +292,26 @@ header{
     cursor: pointer;
     padding: 8px;
 }
-.accordian-content ul li .content-page-link{
+.accordian-content ul li .content-page-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px 10px 60px;
     font-size: 13px;
     color: var(--text-color);
-    font-weight: 300;;
+    font-weight: 300;
 }
-.accordian-content ul li .content-page-link .icon{
+.accordian-content ul li .content-page-link .icon {
     font-size: 16px;
     margin-right: 15px;
 }
-.accordian-content ul li .content-page-link .name{
+.accordian-content ul li .content-page-link .name {
     display: flex;
     align-items: center;
     overflow: hidden;
     padding-right: 20px;
 }
-.accordian-content ul li .content-page-link .name .text{
+.accordian-content ul li .content-page-link .name .text {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
