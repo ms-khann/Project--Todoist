@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded',function(){
     let search_box = document.getElementById("search-box");
     let close_search_box = document.getElementById("close-search-box");
     let accordian_toggle = document.querySelectorAll(".accordian-container .accordian-toggle");
-    console.log(accordian_toggle);
     for(let current of accordian_toggle){
         console.log(current);
         current.addEventListener('click',function(event){
