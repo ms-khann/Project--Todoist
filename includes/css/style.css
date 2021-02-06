@@ -1,3 +1,6 @@
+html{
+    font-size: 14px;
+}
 :root {
     --main-color: #dc4c3f;
     --primary-color: #fff;
@@ -399,6 +402,7 @@ header {
 .inner-about-project .name-field .err-with-count>.count{
     text-align: right;
 }
+.inner-about-project .name-field .err-with-count>.err-text{display: none;}
 .inner-about-project .color-field{
     margin-top: 20px;
 }
@@ -434,11 +438,19 @@ header {
     color: var(--text-color);
 }
 .color-field ul li .all-info  .info .name{
-    font-size: 14px;
+    font-size: 1rem;
 }
 .color-field ul li .all-info  .info .value{
-    font-size: 13px;
+    font-size: 0.9rem;
     margin-top: 5px;
+}
+.color-field ul li .all-info .info .value span{
+    height: 7px;   
+    width: 7px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
 }
 .color-field ul li .all-info .fav-label{
     display: flex;
@@ -470,5 +482,135 @@ header {
     font-weight: 700;
     transform: translate(-50%,-50%);
     color: #fff;
+}
+.view-list-field{margin-top: 10px;}
+.view-list-field .title{
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.view-list-field .radio-here{
+    padding-left: 35px;
+    display: flex;
+}
+.view-list-field .radio-here>div:not(:first-child){
+    margin-left: 50px;
+}
+.view-list-field .radio-here label{
+}
+.view-list-field .radio-btn input{
+    display: none;
+}
+.view-list-field .radio-btn label span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.view-list-field .radio-btn label .bullet{
+    height: 15px;
+    width: 15px;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+}
+.view-list-field .radio-btn label .bullet::before{
+    content: '';
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 50%;
+    width: 50%;
+    background-color: var(--main-color);
+    border-radius: 50%;
+}
+.view-list-field .radio-btn input[type="radio"]:checked+label .bullet::before{
+    display: block;
+}
+.add-project-popup{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.add-project-popup.active{
+    display: block;
+}
+.field-list ul{
+    list-style-type: none;
+}
+.color-list-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 94%;
+    max-height: calc(100vh - 120px);
+    overflow: auto;
+    z-index: 101;
+    display: none;
+}
+.color-list-popup.active{
+    display: block;
+}
+
+.field-list{
+    padding: 15px 0;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+.field-list ul li>div{
+    padding: 15px 20px;
+}
+.field-list ul li>span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.field-list .title{
+    text-align: center;
+    padding: 0 15px 20px;
+    font-size: 1rem;
+}
+.field-list ul li .color{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: inline-block;
+}
+.field-list ul li .color-name{
+    font-size: 1rem;
+    color: var(--text-color);
+    text-transform: capitalize;
+}
+.field-list ul li ul li{
+    padding-left: 30px;
+}
+.field-list ul li ul{
+    /* margin-top: 15px; */
+}
+.field-list ul li ul li:last-child{
+    /* padding-bottom: 0; */
+}
+.parent-project-popup ul li{
+    border-top: 1px solid rgb(37 37 37 / 13%);
+}
+.parent-project-popup{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+    z-index: 101;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transform: translateY(100%);
+    transition: all .3s;
+}
+.parent-project-popup.active{
+    transform: translateY(0);
 }
 /* ------ End : Add Project Popup ------ */

@@ -242,13 +242,13 @@
         <div class="add-task-btn">
             <i class="fa fa-plus" aria-hidden="true"></i>
         </div>
-        <section class="add-project-popup">
+        <form class="add-project-popup" id="add-project-popup">
             <div class="container-fluid popup-head">
                 <div class="row">
                     <div class="container">
                         <div class="inner-popup-head">
                             <div class="left">
-                                <span class="back-btn material-icons">arrow_back</span>
+                                <span class="back-btn material-icons" id="close-project-popup">arrow_back</span>
                                 <span class="title">Add project</span>
                             </div>
                             <div class="right">
@@ -275,7 +275,7 @@
                             </div>
                             <div class="color-field">
                                 <ul>
-                                    <li>
+                                    <li id="open-color-list">
                                         <div class="all-info">
                                             <div class="icon">
                                                 <span class="material-icons">color_lens</span>
@@ -299,7 +299,7 @@
                                             <input type="text">
                                         </div>
                                     </li>
-                                    <li>
+                                    <li class="" id="open-parent-project-popup">
                                         <div class="all-info">
                                             <div class="icon">
                                                 <span class="material-icons">format_list_bulleted</span>
@@ -327,20 +327,20 @@
                                 </ul>
                             </div>
                             <div class="view-list-field">
-                                <h4>View</h4>
-                                <div>
-                                    <div>
-                                        <input type="checkbox" name="view" id="v1">
+                                <div class="title">View</div>
+                                <div class="radio-here">
+                                    <div class="radio-btn">
+                                        <input type="radio" name="view" id="v1" checked>
                                         <label for="v1">
-                                            <span class="text">List</span>
                                             <span class="bullet"></span>
+                                            <span class="text">List</span>
                                         </label>
                                     </div>
-                                    <div>
-                                        <input type="checkbox" name="view" id="v2">
+                                    <div class="radio-btn">
+                                        <input type="radio" name="view" id="v2">
                                         <label for="v2">
-                                            <span class="text">Board</span>
                                             <span class="bullet"></span>
+                                            <span class="text">Board</span>
                                         </label>
                                     </div>
                                 </div>
@@ -349,7 +349,72 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </form>
+        <div class="field-list color-list-popup" id="color-list-popup">
+            <ul>
+                <li>
+                    <div>
+                        <span class="color" style="background-color:rgb(187, 45, 45);"></span>
+                        <span class="color-name">Berry Red</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class="color" style="background-color: greenyellow;"></span>
+                        <span class="color-name">green yellow</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class="color" style="background-color: yellow;"></span>
+                        <span class="color-name">Yellow</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class="color" style="background-color: green;"></span>
+                        <span class="color-name">green</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="field-list parent-project-popup" id="parent-project-popup">
+            <h4 class="title">Projects</h4>
+            <ul>
+                <li>
+                    <div>
+                        <span class="color" style="background-color:var(--text-color);"></span>
+                        <span class="color-name">Welcome</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class="color" style="background-color:var(--text-color);"></span>
+                        <span class="color-name">try boradrs</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class="color" style="background-color:purple;"></span>
+                        <span class="color-name">Sahil</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <div>
+                                <span class="color" style="background-color:var(--text-color);"></span>
+                                <span class="color-name">Project</span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <span class="color" style="background-color: yellow;"></span>
+                        <span class="color-name">Abc</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
         <div class="bg-layer" id="bg-layer"></div>
         <!-- <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js"></script> -->
         <script src="includes/js/script.js"></script>
