@@ -541,6 +541,9 @@ header {
 .field-list ul{
     list-style-type: none;
 }
+.field-list ul li{
+    cursor: pointer;
+}
 .color-list-popup{
     position: absolute;
     top: 50%;

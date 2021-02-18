@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded',function(){
     const color_list_popup = document.getElementById('color-list-popup');
     const open_parent_project_popup = document.getElementById('open-parent-project-popup');
     const parent_project_popup = document.getElementById('parent-project-popup');
+    const color_list_popup_ul_li = document.querySelectorAll("#color-list-popup ul li");
     for(let current of accordian_toggle){
-        console.log(current);
         current.addEventListener('click',function(event){
             console.dir(event);
         });
@@ -69,16 +69,31 @@ document.addEventListener('DOMContentLoaded',function(){
     });
     // --- End: Parent Project Popup ---
 
+
+    // --------- Start: Select Color -----
+    for(let i=0;i<color_list_popup_ul_li.length;i++){
+        color_list_popup_ul_li[i].addEventListener('click',function(event){
+            let color = color_list_popup_ul_li[i].children[0].children[0].style['background-color'];
+            closeColorList();
+            hideBgLayer();
+        });
+    }
+    // --------- End: Select Color -----
+
+
     function openSideBar(){
         sidebar.classList.add('active');
         showBgLayer();
     }
     function closeSideBar(){
         sidebar.classList.remove('active');
-        bg_layer.classList.remove('active');
+        hideBgLayer();
     }
     function showBgLayer(){
         bg_layer.classList.add('active');
+    }
+    function hideBgLayer(){
+        bg_layer.classList.remove('active');
     }
     function closeColorList(){
         color_list_popup.classList.remove('active');
