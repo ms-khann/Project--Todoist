@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const color_list_popup = document.getElementById('color-list-popup');
     const open_parent_project_popup = document.getElementById('open-parent-project-popup');
     const parent_project_popup = document.getElementById('parent-project-popup');
+    const parent_project_popup_li = parent_project_popup.querySelectorAll('ul li');
     const color_list_popup_ul_li = document.querySelectorAll("#color-list-popup ul li");
     for(let current of accordian_toggle){
         current.addEventListener('click',function(event){
@@ -69,11 +70,31 @@ document.addEventListener('DOMContentLoaded',function(){
     });
     // --- End: Parent Project Popup ---
 
+    // --- Start: Set Parent Project Name ---
+    for(let li of parent_project_popup_li){
+        li.addEventListener('click',function(){
+            let parent = li.querySelector('.color-name').innerText;
+            open_parent_project_popup.querySelector('.value').innerText = parent;
+            open_parent_project_popup.querySelector('input').value = parent;
+            parent_project_popup.classList.remove('active');
+            hideBgLayer();
+        });
+    }
+    // for(let i=0;i<parent_project_popup_li.length;i++){
+    //     parent_project_popup_li[i].addEventListener('click',function(){
+    //         alert('asd');
+    //     });
+    // }
+    // --- End: Set Parent Project Name ---
 
     // --------- Start: Select Color -----
     for(let i=0;i<color_list_popup_ul_li.length;i++){
         color_list_popup_ul_li[i].addEventListener('click',function(event){
-            let color = color_list_popup_ul_li[i].children[0].children[0].style['background-color'];
+            let color = color_list_popup_ul_li[i].querySelector('span.color').style['background-color'];
+            open_color_list.querySelector('.value span').style['background-color'] = color;
+            let inp = open_color_list.querySelector('input');
+            inp.value = color;
+            // console.dir(inp.value);
             closeColorList();
             hideBgLayer();
         });

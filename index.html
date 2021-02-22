@@ -242,7 +242,7 @@
         <div class="add-task-btn">
             <i class="fa fa-plus" aria-hidden="true"></i>
         </div>
-        <form class="add-project-popup" id="add-project-popup">
+        <form class="add-project-popup" id="add-project-popup" method="" action="">
             <div class="container-fluid popup-head">
                 <div class="row">
                     <div class="container">
@@ -265,7 +265,7 @@
                         <div class="inner-about-project">
                             <div class="name-field">
                                 <div class="input-here">
-                                    <input type="text" id="n1">
+                                    <input type="text" id="n1" required>
                                     <label class="label" for="n1">Name</label>
                                 </div>
                                 <div class="err-with-count">
@@ -284,7 +284,7 @@
                                                 <div class="name">Color</div>
                                                 <div class="value">Charcol <span></span></div>
                                             </div>
-                                            <input type="text">
+                                            <input type="text" name="color">
                                         </div>
                                     </li>
                                     <li>
@@ -296,7 +296,7 @@
                                                 <div class="name">Collaborators</div>
                                                 <div class="value">No collaborators</div>
                                             </div>
-                                            <input type="text">
+                                            <input type="text" name="collab">
                                         </div>
                                     </li>
                                     <li class="" id="open-parent-project-popup">
@@ -306,8 +306,9 @@
                                             </div>
                                             <div class="info">
                                                 <div class="name">Parent</div>
+                                                <div class="value"></div>
                                             </div>
-                                            <input type="text">
+                                            <input type="text" name="parent_todo">
                                         </div>
                                     </li>
                                     <li>
@@ -350,7 +351,7 @@
                 </div>
             </div>
         </form>
-        <div class="field-list color-list-popup active" id="color-list-popup">
+        <div class="field-list color-list-popup" id="color-list-popup">
             <ul>
                 <li>
                     <div>
