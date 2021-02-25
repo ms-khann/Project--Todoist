@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const open_search_box = document.getElementById("open-search-box");
     const search_box = document.getElementById("search-box");
     const close_search_box = document.getElementById("close-search-box");
+    const accordian_item = document.querySelectorAll('.accordian-container .accordian-item');
     const accordian_toggle = document.querySelectorAll(".accordian-container .accordian-toggle");
     const add_project = document.getElementsByClassName('add-project');
     const add_project_popup = document.getElementById('add-project-popup');
@@ -15,11 +16,18 @@ document.addEventListener('DOMContentLoaded',function(){
     const parent_project_popup = document.getElementById('parent-project-popup');
     const parent_project_popup_li = parent_project_popup.querySelectorAll('ul li');
     const color_list_popup_ul_li = document.querySelectorAll("#color-list-popup ul li");
+
     for(let current of accordian_toggle){
         current.addEventListener('click',function(event){
-            console.dir(event);
+            for(let item of accordian_item){
+                if(item !== current.parentNode){
+                    item.classList.remove('active');
+                }
+            }
+            current.parentNode.classList.toggle('active');
         });
     }
+
     open_sidebar.addEventListener('click',function(){
         openSideBar();
     });
@@ -42,7 +50,8 @@ document.addEventListener('DOMContentLoaded',function(){
 
     // --- Start:Open Add Project Popup ----
     for(let project of add_project){
-        project.addEventListener('click',function(){
+        project.addEventListener('click',function(event){
+            event.stopPropagation();
             add_project_popup.classList.add('active');
             closeSideBar();
         });
